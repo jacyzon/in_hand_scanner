@@ -14,6 +14,9 @@ find_package(OpenGL REQUIRED)
 # OpenNI
 find_package(OpenNI REQUIRED)
 
+# OpenCV
+find_package(OpenCV REQUIRED)
+
 # PCL
 find_package(PCL REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
@@ -107,3 +110,11 @@ list(APPEND OI_SRCS "${MOC_OPENGL_VIEWER_SRC}" "${MOC_OFFLINE_INTEGRATION_SRC}")
 
 ADD_EXECUTABLE(pcl_offline_integration ${OI_SRCS} ${OI_INCS})
 target_link_libraries(pcl_offline_integration ${PCL_LIBRARIES} ${OPENGL_LIBRARIES} ${QT_LIBRARIES})
+
+# filter
+ADD_EXECUTABLE(pcl_filter src/filter.cpp)
+target_link_libraries(pcl_filter ${OpenCV_LIBS} ${PCL_LIBRARIES})
+
+# opencv viewer
+ADD_EXECUTABLE(pcl_viewer src/viewer.cpp)
+target_link_libraries(pcl_viewer ${OpenCV_LIBS} ${OPENNI_LIBRARIES} ${PCL_LIBRARIES})
