@@ -138,6 +138,13 @@ pcl::ihs::MainWindow::MainWindow (QWidget* parent)
   ui_->spinBox_max_age->setValue (static_cast <int> (ihs_->getIntegration ().getMaxAge ()));
   ui_->spinBox_min_directions->setValue (static_cast <int> (ihs_->getIntegration ().getMinDirections ()));
 
+  // Hole filling
+  ui_->spinBox_dilation_size->setValue(0);
+  ui_->spinBox_blur_kernel->setValue(0);
+
+  // Mesh representation
+  // TODO
+
   // Help
   connect (ui_->actionHelp, SIGNAL (triggered ()), this, SLOT (showHelp ()));
 }
