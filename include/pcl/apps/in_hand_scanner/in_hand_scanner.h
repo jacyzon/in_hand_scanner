@@ -49,6 +49,8 @@
 #include <pcl/apps/in_hand_scanner/boost.h>
 #include <pcl/apps/in_hand_scanner/common_types.h>
 #include <pcl/apps/in_hand_scanner/opengl_viewer.h>
+#include <pcl/io/openni_camera/openni_depth_image.h>
+#include <pcl/io/openni_camera/openni_image.h>
 
 ////////////////////////////////////////////////////////////////////////////////
 // Forward declarations
@@ -56,7 +58,7 @@
 
 namespace pcl
 {
-  class OpenNIGrabber;
+  class OpenNIGrabberCustom;
 
   namespace ihs
   {
@@ -189,7 +191,6 @@ namespace pcl
         keyPressEvent (QKeyEvent* event);
 
       private:
-
         typedef pcl::PointXYZRGBA              PointXYZRGBA;
         typedef pcl::PointCloud <PointXYZRGBA> CloudXYZRGBA;
         typedef CloudXYZRGBA::Ptr              CloudXYZRGBAPtr;
@@ -209,7 +210,7 @@ namespace pcl
         typedef pcl::ihs::MeshPtr      MeshPtr;
         typedef pcl::ihs::MeshConstPtr MeshConstPtr;
 
-        typedef pcl::OpenNIGrabber                Grabber;
+        typedef pcl::OpenNIGrabberCustom          Grabber;
         typedef boost::shared_ptr <Grabber>       GrabberPtr;
         typedef boost::shared_ptr <const Grabber> GrabberConstPtr;
 
@@ -231,7 +232,11 @@ namespace pcl
 
         /** \brief Called when new data arries from the grabber. The grabbing - registration - integration pipeline is implemented here. */
         void
-        newDataCallback (const CloudXYZRGBAConstPtr& cloud_in);
+        processCallback (const CloudXYZRGBAConstPtr& cloud_in);
+
+        void
+        newDataCallback (const boost::shared_ptr<openni_wrapper::Image> &image,
+                         const boost::shared_ptr<openni_wrapper::DepthImage> &depth_image, float f);
 
         /** \see http://doc.qt.digia.com/qt/qwidget.html#paintEvent
           * \see http://doc.qt.digia.com/qt/opengl-overpainting.html
