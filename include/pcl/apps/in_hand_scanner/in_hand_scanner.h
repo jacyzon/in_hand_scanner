@@ -68,6 +68,7 @@ namespace pcl
     class InputDataProcessing;
     class Integration;
     class MeshProcessing;
+    class Filter;
   } // End namespace ihs
 } // End namespace pcl
 
@@ -107,6 +108,9 @@ namespace pcl
         typedef boost::shared_ptr <MeshProcessing>       MeshProcessingPtr;
         typedef boost::shared_ptr <const MeshProcessing> MeshProcessingConstPtr;
 
+        typedef pcl::ihs::Filter                         Filter;
+        typedef boost::shared_ptr <Filter>               FilterPtr;
+        typedef boost::shared_ptr <const Filter>         FilterConstPtr;
         /** \brief Switch between different branches of the scanning pipeline. */
         typedef enum RunningMode
         {
@@ -141,6 +145,9 @@ namespace pcl
         /** \brief Get the integration. */
         inline Integration&
         getIntegration () {return (*integration_);}
+
+        inline Filter&
+        getFilter() {return (*filter_);}
 
       signals:
 
@@ -305,7 +312,7 @@ namespace pcl
         /** \brief Prevent the application to crash while closing. */
         bool destructor_called_;
 
-        Filter filter_;
+        FilterPtr filter_;
 
       public:
 

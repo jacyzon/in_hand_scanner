@@ -128,6 +128,10 @@ namespace pcl
         void setMaxAge (const int age);
         void setMinDirections (const int directions);
 
+        // Hole filling
+        void setFilterDilation (const int dilation);
+        void setFilterBlur (const int blur);
+
       private:
 
         Ui::MainWindow* ui_;

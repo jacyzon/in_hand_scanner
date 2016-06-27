@@ -3,7 +3,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <pcl/visualization/cloud_viewer.h>
-#include "pcl/apps/in_hand_scanner/filter.h"
+#include <pcl/apps/in_hand_scanner/filter.h>
 
 void matToPointXYZ(cv::Mat &color, cv::Mat &depth,
                    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud) {
@@ -49,7 +49,8 @@ int main(int argc, char **argv) {
 
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
   pcl::visualization::CloudViewer viewer("Viewer");
-  Filter filter;
+  pcl::ihs::Filter filter;
+  filter.setBlur_kern_size(2);
 
   while (1) {
     xContext.WaitAndUpdateAll();

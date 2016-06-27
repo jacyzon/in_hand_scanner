@@ -83,7 +83,7 @@ pcl::ihs::InHandScanner::InHandScanner (Base* parent)
     mesh_processing_              (new MeshProcessing ()),
     mesh_model_                   (new Mesh ()),
     destructor_called_            (false),
-    filter_                       ()
+    filter_                       (new Filter())
 {
   // http://doc.qt.digia.com/qt/qmetatype.html#qRegisterMetaType
   qRegisterMetaType <pcl::ihs::InHandScanner::RunningMode> ("RunningMode");
@@ -424,7 +424,7 @@ pcl::ihs::InHandScanner::newDataCallback(const boost::shared_ptr<openni_wrapper:
   cv::Mat cDepthImg(depth_image->getDepthMetaData().FullYRes(),
                     depth_image->getDepthMetaData().FullXRes(), CV_16UC1,
                     (void *) depth_image->getDepthMetaData().Data());
-  filter_.process(cDepthImg, cDepthImg);
+  filter_->process(cDepthImg, cDepthImg);
   pcl::PointCloud<PointXYZRGBA>::Ptr cloud = grabber_->
       convertToXYZRGBPointCloudPub<pcl::PointXYZRGBA>(image, depth_image);
   processCallback(cloud);

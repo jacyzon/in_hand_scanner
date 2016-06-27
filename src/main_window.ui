@@ -198,15 +198,15 @@
         <string/>
        </property>
        <property name="currentIndex">
-        <number>4</number>
+        <number>3</number>
        </property>
        <widget class="QWidget" name="page_input_data_processing">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>303</width>
-          <height>436</height>
+          <width>295</width>
+          <height>397</height>
          </rect>
         </property>
         <attribute name="label">
@@ -579,8 +579,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>291</width>
-          <height>324</height>
+          <width>310</width>
+          <height>327</height>
          </rect>
         </property>
         <attribute name="label">
@@ -719,8 +719,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>308</width>
-          <height>304</height>
+          <width>310</width>
+          <height>327</height>
          </rect>
         </property>
         <attribute name="label">
@@ -823,8 +823,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>306</width>
-          <height>304</height>
+          <width>310</width>
+          <height>327</height>
          </rect>
         </property>
         <attribute name="label">
@@ -888,8 +888,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>306</width>
-          <height>304</height>
+          <width>310</width>
+          <height>327</height>
          </rect>
         </property>
         <attribute name="label">
@@ -899,7 +899,7 @@
          <item>
           <widget class="QRadioButton" name="radioButton_triangulation">
            <property name="text">
-            <string>Triangulation</string>
+            <string>Triang&amp;ulation</string>
            </property>
           </widget>
          </item>
@@ -951,7 +951,7 @@
      <x>0</x>
      <y>0</y>
      <width>1042</width>
-     <height>33</height>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -1044,8 +1044,8 @@
    <slot>setXMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>840</x>
-     <y>129</y>
+     <x>873</x>
+     <y>189</y>
     </hint>
     <hint type="destinationlabel">
      <x>565</x>
@@ -1060,8 +1060,8 @@
    <slot>setXMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>924</x>
-     <y>123</y>
+     <x>1005</x>
+     <y>189</y>
     </hint>
     <hint type="destinationlabel">
      <x>665</x>
@@ -1076,8 +1076,8 @@
    <slot>setYMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>800</x>
-     <y>154</y>
+     <x>873</x>
+     <y>225</y>
     </hint>
     <hint type="destinationlabel">
      <x>570</x>
@@ -1092,8 +1092,8 @@
    <slot>setYMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>908</x>
-     <y>158</y>
+     <x>1005</x>
+     <y>225</y>
     </hint>
     <hint type="destinationlabel">
      <x>669</x>
@@ -1108,8 +1108,8 @@
    <slot>setZMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>821</x>
-     <y>189</y>
+     <x>873</x>
+     <y>261</y>
     </hint>
     <hint type="destinationlabel">
      <x>574</x>
@@ -1124,8 +1124,8 @@
    <slot>setZMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>930</x>
-     <y>189</y>
+     <x>1005</x>
+     <y>261</y>
     </hint>
     <hint type="destinationlabel">
      <x>671</x>
@@ -1140,8 +1140,8 @@
    <slot>setHMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>817</x>
-     <y>308</y>
+     <x>862</x>
+     <y>365</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -1156,8 +1156,8 @@
    <slot>setHMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>960</x>
-     <y>308</y>
+     <x>1005</x>
+     <y>365</y>
     </hint>
     <hint type="destinationlabel">
      <x>662</x>
@@ -1172,8 +1172,8 @@
    <slot>setSMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>817</x>
-     <y>343</y>
+     <x>862</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>565</x>
@@ -1188,8 +1188,8 @@
    <slot>setSMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>960</x>
-     <y>343</y>
+     <x>1005</x>
+     <y>401</y>
     </hint>
     <hint type="destinationlabel">
      <x>664</x>
@@ -1204,8 +1204,8 @@
    <slot>setVMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>817</x>
-     <y>378</y>
+     <x>862</x>
+     <y>437</y>
     </hint>
     <hint type="destinationlabel">
      <x>569</x>
@@ -1220,8 +1220,8 @@
    <slot>setVMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>960</x>
-     <y>378</y>
+     <x>1005</x>
+     <y>437</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1236,8 +1236,8 @@
    <slot>setColorSegmentationInverted(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>834</x>
-     <y>440</y>
+     <x>846</x>
+     <y>505</y>
     </hint>
     <hint type="destinationlabel">
      <x>669</x>
@@ -1252,8 +1252,8 @@
    <slot>setXYZErodeSize(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>875</x>
-     <y>225</y>
+     <x>978</x>
+     <y>297</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1268,8 +1268,8 @@
    <slot>setHSVDilateSize(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>880</x>
-     <y>397</y>
+     <x>967</x>
+     <y>473</y>
     </hint>
     <hint type="destinationlabel">
      <x>668</x>
@@ -1284,8 +1284,8 @@
    <slot>setEpsilon()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>160</y>
+     <x>936</x>
+     <y>223</y>
     </hint>
     <hint type="destinationlabel">
      <x>675</x>
@@ -1300,8 +1300,8 @@
    <slot>setMaxIterations(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>195</y>
+     <x>936</x>
+     <y>259</y>
     </hint>
     <hint type="destinationlabel">
      <x>677</x>
@@ -1316,8 +1316,8 @@
    <slot>setMinOverlap(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>230</y>
+     <x>936</x>
+     <y>295</y>
     </hint>
     <hint type="destinationlabel">
      <x>676</x>
@@ -1332,8 +1332,8 @@
    <slot>setMaxFitness()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>262</y>
+     <x>936</x>
+     <y>331</y>
     </hint>
     <hint type="destinationlabel">
      <x>677</x>
@@ -1348,8 +1348,8 @@
    <slot>setCorrespondenceRejectionFactor(double)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>949</x>
-     <y>336</y>
+     <x>986</x>
+     <y>399</y>
     </hint>
     <hint type="destinationlabel">
      <x>676</x>
@@ -1364,8 +1364,8 @@
    <slot>setCorrespondenceRejectionMaxAngle(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>949</x>
-     <y>371</y>
+     <x>986</x>
+     <y>435</y>
     </hint>
     <hint type="destinationlabel">
      <x>678</x>
@@ -1380,8 +1380,8 @@
    <slot>setMaxSquaredDistance()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>968</x>
-     <y>194</y>
+     <x>982</x>
+     <y>257</y>
     </hint>
     <hint type="destinationlabel">
      <x>679</x>
@@ -1396,8 +1396,8 @@
    <slot>setAveragingMaxAngle(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>968</x>
-     <y>229</y>
+     <x>982</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>679</x>
@@ -1412,8 +1412,8 @@
    <slot>setMaxAge(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>949</x>
-     <y>303</y>
+     <x>986</x>
+     <y>361</y>
     </hint>
     <hint type="destinationlabel">
      <x>678</x>
@@ -1428,8 +1428,8 @@
    <slot>setMinDirections(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>949</x>
-     <y>338</y>
+     <x>986</x>
+     <y>397</y>
     </hint>
     <hint type="destinationlabel">
      <x>677</x>
@@ -1444,12 +1444,44 @@
    <slot>setColorSegmentationEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>882</x>
-     <y>436</y>
+     <x>945</x>
+     <y>505</y>
     </hint>
     <hint type="destinationlabel">
      <x>674</x>
      <y>475</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_dilation_size</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setFilterDilation(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>898</x>
+     <y>271</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>592</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_blur_kernel</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setFilterBlur(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>951</x>
+     <y>319</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>592</x>
+     <y>337</y>
     </hint>
    </hints>
   </connection>
@@ -1481,5 +1513,7 @@
   <slot>setMaxAge(int)</slot>
   <slot>setMinDirections(int)</slot>
   <slot>setColorSegmentationEnabled(bool)</slot>
+  <slot>setFilterDilation(int)</slot>
+  <slot>setFilterBlur(int)</slot>
  </slots>
 </ui>
