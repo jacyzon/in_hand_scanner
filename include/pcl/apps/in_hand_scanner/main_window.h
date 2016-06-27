@@ -132,6 +132,8 @@ namespace pcl
         void setFilterDilation (const int dilation);
         void setFilterBlur (const int blur);
         void setFilterEnabled (const bool enabled);
+        void setFilterLowerBound (const int bound);
+        void setFilterUpperBound (const int bound);
 
       private:
 

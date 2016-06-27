@@ -142,6 +142,8 @@ pcl::ihs::MainWindow::MainWindow (QWidget* parent)
   ui_->spinBox_dilation_size->setValue(ihs_->getFilter().getClosing_size());
   ui_->spinBox_blur_kernel->setValue(ihs_->getFilter().getBlur_kern_size());
   ui_->checkBox_filter_enabled->setChecked (ihs_->getFilter().isEnabled());
+  ui_->spinBox_lower_bound->setValue(ihs_->getFilter().getLower_bound());
+  ui_->spinBox_upper_bound->setValue(ihs_->getFilter().getUpper_bound());
 
   // Mesh representation
   // TODO
@@ -414,4 +416,18 @@ pcl::ihs::MainWindow::setFilterEnabled (const bool enabled)
 {
   ihs_->getFilter().setEnabled(enabled);
   ui_->checkBox_filter_enabled->setChecked(ihs_->getFilter().isEnabled());
+}
+
+void
+pcl::ihs::MainWindow::setFilterLowerBound (const int bound)
+{
+  ihs_->getFilter().setLower_bound(bound);
+  ui_->spinBox_lower_bound->setValue(ihs_->getFilter().getLower_bound());
+}
+
+void
+pcl::ihs::MainWindow::setFilterUpperBound (const int bound)
+{
+  ihs_->getFilter().setUpper_bound(bound);
+  ui_->spinBox_upper_bound->setValue(ihs_->getFilter().getUpper_bound());
 }
