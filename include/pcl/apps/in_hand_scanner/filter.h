@@ -14,6 +14,7 @@ namespace pcl {
         upper_bound_ = 65000;
         closing_size_ = 1;
         blur_kern_size_ = 2;
+        enabled_ = false;
       }
 
       /*==============================
@@ -104,11 +105,20 @@ namespace pcl {
           Filter::blur_kern_size_ = blur_kern_size_;
       }
 
+      bool isEnabled() const {
+        return enabled_;
+      }
+
+      void setEnabled(bool enabled) {
+        enabled_ = enabled;
+      }
+
     private:
       int upper_bound_;
       int lower_bound_;
       int closing_size_;
       int blur_kern_size_;
+      bool enabled_;
     };
   }
 }

@@ -204,7 +204,7 @@
         <property name="geometry">
          <rect>
           <x>0</x>
-          <y>0</y>
+          <y>-70</y>
           <width>295</width>
           <height>397</height>
          </rect>
@@ -320,7 +320,7 @@
             <item row="1" column="0">
              <widget class="QLabel" name="label_y_min">
               <property name="text">
-               <string>y min</string>
+               <string>&amp;y min</string>
               </property>
               <property name="buddy">
                <cstring>spinBox_y_min</cstring>
@@ -844,7 +844,7 @@
               </property>
              </widget>
             </item>
-            <item row="0" column="1">
+            <item row="0" column="2">
              <widget class="QSpinBox" name="spinBox_dilation_size">
               <property name="maximum">
                <number>180</number>
@@ -858,7 +858,7 @@
               </property>
              </widget>
             </item>
-            <item row="1" column="1">
+            <item row="1" column="2">
              <widget class="QSpinBox" name="spinBox_blur_kernel">
               <property name="maximum">
                <number>180</number>
@@ -866,6 +866,13 @@
              </widget>
             </item>
            </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBox_filter_enabled">
+           <property name="text">
+            <string>Enabled</string>
+           </property>
           </widget>
          </item>
          <item>
@@ -1045,7 +1052,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>873</x>
-     <y>189</y>
+     <y>119</y>
     </hint>
     <hint type="destinationlabel">
      <x>565</x>
@@ -1061,7 +1068,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1005</x>
-     <y>189</y>
+     <y>119</y>
     </hint>
     <hint type="destinationlabel">
      <x>665</x>
@@ -1077,7 +1084,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>873</x>
-     <y>225</y>
+     <y>155</y>
     </hint>
     <hint type="destinationlabel">
      <x>570</x>
@@ -1093,7 +1100,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1005</x>
-     <y>225</y>
+     <y>155</y>
     </hint>
     <hint type="destinationlabel">
      <x>669</x>
@@ -1109,7 +1116,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>873</x>
-     <y>261</y>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>574</x>
@@ -1125,7 +1132,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1005</x>
-     <y>261</y>
+     <y>191</y>
     </hint>
     <hint type="destinationlabel">
      <x>671</x>
@@ -1141,7 +1148,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>862</x>
-     <y>365</y>
+     <y>295</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -1157,7 +1164,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1005</x>
-     <y>365</y>
+     <y>295</y>
     </hint>
     <hint type="destinationlabel">
      <x>662</x>
@@ -1173,7 +1180,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>862</x>
-     <y>401</y>
+     <y>331</y>
     </hint>
     <hint type="destinationlabel">
      <x>565</x>
@@ -1189,7 +1196,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1005</x>
-     <y>401</y>
+     <y>331</y>
     </hint>
     <hint type="destinationlabel">
      <x>664</x>
@@ -1205,7 +1212,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>862</x>
-     <y>437</y>
+     <y>367</y>
     </hint>
     <hint type="destinationlabel">
      <x>569</x>
@@ -1221,7 +1228,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>1005</x>
-     <y>437</y>
+     <y>367</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1237,7 +1244,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>846</x>
-     <y>505</y>
+     <y>435</y>
     </hint>
     <hint type="destinationlabel">
      <x>669</x>
@@ -1253,7 +1260,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>978</x>
-     <y>297</y>
+     <y>227</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1269,7 +1276,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>967</x>
-     <y>473</y>
+     <y>403</y>
     </hint>
     <hint type="destinationlabel">
      <x>668</x>
@@ -1445,7 +1452,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>945</x>
-     <y>505</y>
+     <y>435</y>
     </hint>
     <hint type="destinationlabel">
      <x>674</x>
@@ -1485,6 +1492,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>checkBox_filter_enabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setFilterEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>785</x>
+     <y>354</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>593</x>
+     <y>382</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>setXMin(int)</slot>
@@ -1515,5 +1538,6 @@
   <slot>setColorSegmentationEnabled(bool)</slot>
   <slot>setFilterDilation(int)</slot>
   <slot>setFilterBlur(int)</slot>
+  <slot>setFilterEnabled(bool)</slot>
  </slots>
 </ui>

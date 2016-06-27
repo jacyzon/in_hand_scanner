@@ -131,6 +131,7 @@ namespace pcl
         // Hole filling
         void setFilterDilation (const int dilation);
         void setFilterBlur (const int blur);
+        void setFilterEnabled (const bool enabled);
 
       private:
 

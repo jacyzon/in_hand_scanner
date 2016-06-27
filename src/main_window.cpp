@@ -141,6 +141,7 @@ pcl::ihs::MainWindow::MainWindow (QWidget* parent)
   // Hole filling
   ui_->spinBox_dilation_size->setValue(ihs_->getFilter().getClosing_size());
   ui_->spinBox_blur_kernel->setValue(ihs_->getFilter().getBlur_kern_size());
+  ui_->checkBox_filter_enabled->setChecked (ihs_->getFilter().isEnabled());
 
   // Mesh representation
   // TODO
@@ -392,6 +393,8 @@ pcl::ihs::MainWindow::setMinDirections (const int directions)
   ui_->spinBox_min_directions->setValue (static_cast <int> (ihs_->getIntegration ().getMinDirections ()));
 }
 
+////////////////////////////////////////////////////////////////////////////////
+
 void
 pcl::ihs::MainWindow::setFilterDilation (const int dilation)
 {
@@ -405,4 +408,10 @@ pcl::ihs::MainWindow::setFilterBlur (const int blur)
   ihs_->getFilter().setBlur_kern_size(blur);
   ui_->spinBox_blur_kernel->setValue (ihs_->getFilter().getBlur_kern_size());
 }
-////////////////////////////////////////////////////////////////////////////////
+
+void
+pcl::ihs::MainWindow::setFilterEnabled (const bool enabled)
+{
+  ihs_->getFilter().setEnabled(enabled);
+  ui_->checkBox_filter_enabled->setChecked(ihs_->getFilter().isEnabled());
+}
