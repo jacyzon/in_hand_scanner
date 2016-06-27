@@ -60,7 +60,9 @@
 #include <pcl/apps/in_hand_scanner/input_data_processing.h>
 #include <pcl/apps/in_hand_scanner/integration.h>
 #include <pcl/apps/in_hand_scanner/mesh_processing.h>
-#include "openni_grabber_custom.h"
+#include <pcl/apps/in_hand_scanner/openni_grabber_custom.h>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -80,7 +82,8 @@ pcl::ihs::InHandScanner::InHandScanner (Base* parent)
     integration_                  (new Integration ()),
     mesh_processing_              (new MeshProcessing ()),
     mesh_model_                   (new Mesh ()),
-    destructor_called_            (false)
+    destructor_called_            (false),
+    filter_                       ()
 {
   // http://doc.qt.digia.com/qt/qmetatype.html#qRegisterMetaType
   qRegisterMetaType <pcl::ihs::InHandScanner::RunningMode> ("RunningMode");
@@ -414,12 +417,17 @@ pcl::ihs::InHandScanner::processCallback(const CloudXYZRGBAConstPtr& cloud_in)
 ////////////////////////////////////////////////////////////////////////////////
 void
 pcl::ihs::InHandScanner::newDataCallback(const boost::shared_ptr<openni_wrapper::Image> &image,
-                                         const boost::shared_ptr<openni_wrapper::DepthImage> &depth_image,
+                                         const boost::shared_ptr<openni_wrapper::DepthImage> &depth_image_i,
                                          float f) {
-  std::cout << "TODO" << std::endl;
-  pcl::PointCloud<PointXYZRGBA>::Ptr pointCloud =
-      grabber_->convertToXYZRGBPointCloudPub<pcl::PointXYZRGBA>(image, depth_image);
-  processCallback(pointCloud);
+  boost::shared_ptr<openni_wrapper::DepthImage> depth_image;
+  depth_image = depth_image_i;
+  cv::Mat cDepthImg(depth_image->getDepthMetaData().FullYRes(),
+                    depth_image->getDepthMetaData().FullXRes(), CV_16UC1,
+                    (void *) depth_image->getDepthMetaData().Data());
+  filter_.process(cDepthImg, cDepthImg);
+  pcl::PointCloud<PointXYZRGBA>::Ptr cloud = grabber_->
+      convertToXYZRGBPointCloudPub<pcl::PointXYZRGBA>(image, depth_image);
+  processCallback(cloud);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

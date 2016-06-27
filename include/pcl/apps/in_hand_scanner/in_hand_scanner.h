@@ -49,6 +49,7 @@
 #include <pcl/apps/in_hand_scanner/boost.h>
 #include <pcl/apps/in_hand_scanner/common_types.h>
 #include <pcl/apps/in_hand_scanner/opengl_viewer.h>
+#include <pcl/apps/in_hand_scanner/filter.h>
 #include <pcl/io/openni_camera/openni_depth_image.h>
 #include <pcl/io/openni_camera/openni_image.h>
 
@@ -58,6 +59,7 @@
 
 namespace pcl
 {
+  class OpenNIGrabber;
   class OpenNIGrabberCustom;
 
   namespace ihs
@@ -302,6 +304,8 @@ namespace pcl
 
         /** \brief Prevent the application to crash while closing. */
         bool destructor_called_;
+
+        Filter filter_;
 
       public:
 

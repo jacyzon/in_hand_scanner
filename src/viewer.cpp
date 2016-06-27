@@ -3,6 +3,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <pcl/visualization/cloud_viewer.h>
+#include "pcl/apps/in_hand_scanner/filter.h"
 
 void matToPointXYZ(cv::Mat &color, cv::Mat &depth,
                    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud) {
@@ -48,6 +49,7 @@ int main(int argc, char **argv) {
 
   pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
   pcl::visualization::CloudViewer viewer("Viewer");
+  Filter filter;
 
   while (1) {
     xContext.WaitAndUpdateAll();
@@ -63,8 +65,12 @@ int main(int argc, char **argv) {
     xDepth.GetMetaData(xDepthData);
 
     cv::Mat cDepthImg(xDepthData.FullYRes(), xDepthData.FullXRes(), CV_16UC1, (void *) xDepthData.Data());
+
+    cv::Mat cClone = cDepthImg.clone();
+    filter.process(cClone, cClone);
+
     cv::Mat c8BitDepth;
-    cDepthImg.convertTo(c8BitDepth, CV_8U, 255.0 / 7000);
+    cClone.convertTo(c8BitDepth, CV_8U, 255.0 / 7000);
     cv::imshow("Depth Image", c8BitDepth);
 
     matToPointXYZ(cBGRImg, cDepthImg, cloud);
@@ -72,6 +78,7 @@ int main(int argc, char **argv) {
 
     if (cv::waitKey(10) >= 0) break;
   }
+  return 0;
 }
 
 
