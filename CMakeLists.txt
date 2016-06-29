@@ -14,6 +14,9 @@ find_package(OpenGL REQUIRED)
 # OpenNI
 find_package(OpenNI REQUIRED)
 
+# OpenCV
+find_package(OpenCV REQUIRED)
+
 # PCL
 find_package(PCL REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
@@ -99,7 +102,7 @@ list(APPEND SRCS "${MOC_IN_HAND_SCANNER_SRC}" "${MOC_OPENGL_VIEWER_SRC}" "${MOC_
 
 set(EXE_NAME "pcl_${SUBSYS_NAME}_${SUBSUBSYS_NAME}")
 add_executable(${EXE_NAME} ${SRCS} ${INCS} ${IMPL_INCS})
-target_link_libraries(${EXE_NAME} ${PCL_LIBRARIES} ${OPENGL_LIBRARIES} ${QT_LIBRARIES})
+target_link_libraries(${EXE_NAME} ${PCL_LIBRARIES} ${OpenCV_LIBS} ${OPENGL_LIBRARIES} ${QT_LIBRARIES})
 
 # Offline integration
 list(APPEND OI_INCS "${MOC_OPENGL_VIEWER_INC}" "${MOC_OFFLINE_INTEGRATION_INC}")
@@ -107,3 +110,7 @@ list(APPEND OI_SRCS "${MOC_OPENGL_VIEWER_SRC}" "${MOC_OFFLINE_INTEGRATION_SRC}")
 
 ADD_EXECUTABLE(pcl_offline_integration ${OI_SRCS} ${OI_INCS})
 target_link_libraries(pcl_offline_integration ${PCL_LIBRARIES} ${OPENGL_LIBRARIES} ${QT_LIBRARIES})
+
+# opencv viewer
+ADD_EXECUTABLE(pcl_viewer src/viewer.cpp)
+target_link_libraries(pcl_viewer ${OpenCV_LIBS} ${OPENNI_LIBRARIES} ${PCL_LIBRARIES})

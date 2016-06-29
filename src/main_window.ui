@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1008</width>
+    <width>1042</width>
     <height>600</height>
    </rect>
   </property>
@@ -120,19 +120,6 @@
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer_main_controls">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
        <widget class="QToolButton" name="toolButton_0">
         <property name="toolTip">
          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Reset the scanning pipeline (Shortcut: 0).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -147,6 +134,19 @@
          <bool>false</bool>
         </property>
        </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_main_controls">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </item>
@@ -172,14 +172,14 @@
    <property name="minimumSize">
     <size>
      <width>324</width>
-     <height>228</height>
+     <height>307</height>
     </size>
    </property>
    <property name="features">
     <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetMovable</set>
    </property>
    <property name="windowTitle">
-    <string>Settings</string>
+    <string>Setti&amp;ngs</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>2</number>
@@ -187,7 +187,7 @@
    <widget class="QWidget" name="dockWidgetContents">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QToolBox" name="toolBox">
+      <widget class="QToolBox" name="toolbox">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -198,15 +198,15 @@
         <string/>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>3</number>
        </property>
        <widget class="QWidget" name="page_input_data_processing">
         <property name="geometry">
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>300</width>
-          <height>408</height>
+          <width>295</width>
+          <height>397</height>
          </rect>
         </property>
         <attribute name="label">
@@ -238,7 +238,7 @@
             <item row="2" column="0">
              <widget class="QLabel" name="label_z_min">
               <property name="text">
-               <string>z min</string>
+               <string>&amp;z min</string>
               </property>
               <property name="buddy">
                <cstring>spinBox_z_min</cstring>
@@ -274,7 +274,7 @@
             <item row="0" column="0">
              <widget class="QLabel" name="label_x_min">
               <property name="text">
-               <string>x min</string>
+               <string>&amp;x min</string>
               </property>
               <property name="buddy">
                <cstring>spinBox_x_min</cstring>
@@ -320,7 +320,7 @@
             <item row="1" column="0">
              <widget class="QLabel" name="label_y_min">
               <property name="text">
-               <string>y min</string>
+               <string>&amp;y min</string>
               </property>
               <property name="buddy">
                <cstring>spinBox_y_min</cstring>
@@ -492,7 +492,7 @@
             <item row="2" column="2">
              <widget class="QLabel" name="label_v_max">
               <property name="text">
-               <string>V max</string>
+               <string>&amp;V max</string>
               </property>
               <property name="buddy">
                <cstring>spinBox_v_max</cstring>
@@ -579,8 +579,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>300</width>
-          <height>401</height>
+          <width>310</width>
+          <height>327</height>
          </rect>
         </property>
         <attribute name="label">
@@ -603,7 +603,7 @@
             <item row="1" column="0">
              <widget class="QLabel" name="label_max_iterations">
               <property name="text">
-               <string>Max iterations</string>
+               <string>Ma&amp;x iterations</string>
               </property>
               <property name="buddy">
                <cstring>spinBox_max_iterations</cstring>
@@ -613,7 +613,7 @@
             <item row="2" column="0">
              <widget class="QLabel" name="label_min_overlap">
               <property name="text">
-               <string>Min overlap</string>
+               <string>Min o&amp;verlap</string>
               </property>
               <property name="buddy">
                <cstring>spinBox_min_overlap</cstring>
@@ -719,8 +719,8 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>300</width>
-          <height>401</height>
+          <width>310</width>
+          <height>327</height>
          </rect>
         </property>
         <attribute name="label">
@@ -818,6 +818,148 @@
          </item>
         </layout>
        </widget>
+       <widget class="QWidget" name="page_hole_filling">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>310</width>
+          <height>327</height>
+         </rect>
+        </property>
+        <attribute name="label">
+         <string>Hole filling</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QGroupBox" name="groupBox_threshold">
+           <property name="title">
+            <string>Threshold</string>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="0" column="0">
+             <widget class="QLabel" name="label_dilation_size">
+              <property name="text">
+               <string>Closing</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="2">
+             <widget class="QSpinBox" name="spinBox_dilation_size">
+              <property name="maximum">
+               <number>11</number>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="label_blur_kernel">
+              <property name="text">
+               <string>Blur kernel</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="2">
+             <widget class="QSpinBox" name="spinBox_blur_kernel">
+              <property name="maximum">
+               <number>2</number>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_lower_bound">
+              <property name="text">
+               <string>Lower bound</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="2">
+             <widget class="QSpinBox" name="spinBox_upper_bound">
+              <property name="maximum">
+               <number>65535</number>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="label_upper_bound">
+              <property name="text">
+               <string>Upper bound</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="2">
+             <widget class="QSpinBox" name="spinBox_lower_bound">
+              <property name="maximum">
+               <number>65535</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="checkBox_filter_enabled">
+           <property name="text">
+            <string>Enabled</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_integration">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="page_mesh">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>310</width>
+          <height>327</height>
+         </rect>
+        </property>
+        <attribute name="label">
+         <string>Mesh</string>
+        </attribute>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <item>
+          <widget class="QRadioButton" name="radioButton_triangulation">
+           <property name="text">
+            <string>Triang&amp;ulation</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="radioButton_poisson">
+           <property name="text">
+            <string>Poisson </string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_integration">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
       </widget>
      </item>
     </layout>
@@ -843,13 +985,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1008</width>
-     <height>22</height>
+     <width>1042</width>
+     <height>31</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Fi&amp;le</string>
     </property>
     <addaction name="actionSaveAs"/>
    </widget>
@@ -886,7 +1028,7 @@
   </action>
   <action name="actionSaveAs">
    <property name="text">
-    <string>Save As ...</string>
+    <string>&amp;Save As ...</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
@@ -900,7 +1042,6 @@
   <tabstop>toolButton_3</tabstop>
   <tabstop>toolButton_4</tabstop>
   <tabstop>toolButton_5</tabstop>
-  <tabstop>toolButton_0</tabstop>
   <tabstop>spinBox_x_min</tabstop>
   <tabstop>spinBox_x_max</tabstop>
   <tabstop>spinBox_y_min</tabstop>
@@ -937,8 +1078,8 @@
    <slot>setXMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>840</x>
-     <y>129</y>
+     <x>861</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
      <x>565</x>
@@ -953,8 +1094,8 @@
    <slot>setXMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>924</x>
-     <y>123</y>
+     <x>981</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
      <x>665</x>
@@ -969,8 +1110,8 @@
    <slot>setYMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>800</x>
-     <y>154</y>
+     <x>861</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>570</x>
@@ -985,8 +1126,8 @@
    <slot>setYMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>908</x>
-     <y>158</y>
+     <x>981</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>669</x>
@@ -1001,8 +1142,8 @@
    <slot>setZMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>821</x>
-     <y>189</y>
+     <x>861</x>
+     <y>228</y>
     </hint>
     <hint type="destinationlabel">
      <x>574</x>
@@ -1017,8 +1158,8 @@
    <slot>setZMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>930</x>
-     <y>189</y>
+     <x>981</x>
+     <y>228</y>
     </hint>
     <hint type="destinationlabel">
      <x>671</x>
@@ -1033,8 +1174,8 @@
    <slot>setHMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>817</x>
-     <y>308</y>
+     <x>840</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
      <x>564</x>
@@ -1049,8 +1190,8 @@
    <slot>setHMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>960</x>
-     <y>308</y>
+     <x>981</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
      <x>662</x>
@@ -1065,8 +1206,8 @@
    <slot>setSMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>817</x>
-     <y>343</y>
+     <x>840</x>
+     <y>368</y>
     </hint>
     <hint type="destinationlabel">
      <x>565</x>
@@ -1081,8 +1222,8 @@
    <slot>setSMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>960</x>
-     <y>343</y>
+     <x>981</x>
+     <y>368</y>
     </hint>
     <hint type="destinationlabel">
      <x>664</x>
@@ -1097,8 +1238,8 @@
    <slot>setVMin(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>817</x>
-     <y>378</y>
+     <x>840</x>
+     <y>404</y>
     </hint>
     <hint type="destinationlabel">
      <x>569</x>
@@ -1113,8 +1254,8 @@
    <slot>setVMax(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>960</x>
-     <y>378</y>
+     <x>981</x>
+     <y>404</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1129,8 +1270,8 @@
    <slot>setColorSegmentationInverted(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>834</x>
-     <y>440</y>
+     <x>840</x>
+     <y>471</y>
     </hint>
     <hint type="destinationlabel">
      <x>669</x>
@@ -1145,8 +1286,8 @@
    <slot>setXYZErodeSize(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>875</x>
-     <y>225</y>
+     <x>981</x>
+     <y>264</y>
     </hint>
     <hint type="destinationlabel">
      <x>666</x>
@@ -1161,8 +1302,8 @@
    <slot>setHSVDilateSize(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>880</x>
-     <y>397</y>
+     <x>981</x>
+     <y>440</y>
     </hint>
     <hint type="destinationlabel">
      <x>668</x>
@@ -1177,8 +1318,8 @@
    <slot>setEpsilon()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>160</y>
+     <x>939</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
      <x>675</x>
@@ -1193,8 +1334,8 @@
    <slot>setMaxIterations(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>195</y>
+     <x>939</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>677</x>
@@ -1209,8 +1350,8 @@
    <slot>setMinOverlap(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>230</y>
+     <x>939</x>
+     <y>228</y>
     </hint>
     <hint type="destinationlabel">
      <x>676</x>
@@ -1225,8 +1366,8 @@
    <slot>setMaxFitness()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>921</x>
-     <y>262</y>
+     <x>939</x>
+     <y>264</y>
     </hint>
     <hint type="destinationlabel">
      <x>677</x>
@@ -1241,8 +1382,8 @@
    <slot>setCorrespondenceRejectionFactor(double)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>949</x>
-     <y>336</y>
+     <x>939</x>
+     <y>332</y>
     </hint>
     <hint type="destinationlabel">
      <x>676</x>
@@ -1257,8 +1398,8 @@
    <slot>setCorrespondenceRejectionMaxAngle(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>949</x>
-     <y>371</y>
+     <x>939</x>
+     <y>368</y>
     </hint>
     <hint type="destinationlabel">
      <x>678</x>
@@ -1273,8 +1414,8 @@
    <slot>setMaxSquaredDistance()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>968</x>
-     <y>194</y>
+     <x>935</x>
+     <y>156</y>
     </hint>
     <hint type="destinationlabel">
      <x>679</x>
@@ -1289,8 +1430,8 @@
    <slot>setAveragingMaxAngle(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>968</x>
-     <y>229</y>
+     <x>935</x>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>679</x>
@@ -1305,8 +1446,8 @@
    <slot>setMaxAge(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>949</x>
-     <y>303</y>
+     <x>935</x>
+     <y>260</y>
     </hint>
     <hint type="destinationlabel">
      <x>678</x>
@@ -1321,8 +1462,8 @@
    <slot>setMinDirections(int)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>949</x>
-     <y>338</y>
+     <x>935</x>
+     <y>296</y>
     </hint>
     <hint type="destinationlabel">
      <x>677</x>
@@ -1337,12 +1478,92 @@
    <slot>setColorSegmentationEnabled(bool)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>882</x>
-     <y>436</y>
+     <x>923</x>
+     <y>471</y>
     </hint>
     <hint type="destinationlabel">
      <x>674</x>
      <y>475</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_dilation_size</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setFilterDilation(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>898</x>
+     <y>271</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>592</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_blur_kernel</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setFilterBlur(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>951</x>
+     <y>319</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>592</x>
+     <y>337</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBox_filter_enabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setFilterEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1027</x>
+     <y>440</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>593</x>
+     <y>382</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_lower_bound</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setFilterLowerBound(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>963</x>
+     <y>348</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>601</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>spinBox_upper_bound</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setFilterUpperBound(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>1003</x>
+     <y>389</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>601</x>
+     <y>469</y>
     </hint>
    </hints>
   </connection>
@@ -1374,5 +1595,10 @@
   <slot>setMaxAge(int)</slot>
   <slot>setMinDirections(int)</slot>
   <slot>setColorSegmentationEnabled(bool)</slot>
+  <slot>setFilterDilation(int)</slot>
+  <slot>setFilterBlur(int)</slot>
+  <slot>setFilterEnabled(bool)</slot>
+  <slot>setFilterUpperBound(int)</slot>
+  <slot>setFilterLowerBound(int)</slot>
  </slots>
 </ui>

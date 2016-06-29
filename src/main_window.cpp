@@ -138,6 +138,16 @@ pcl::ihs::MainWindow::MainWindow (QWidget* parent)
   ui_->spinBox_max_age->setValue (static_cast <int> (ihs_->getIntegration ().getMaxAge ()));
   ui_->spinBox_min_directions->setValue (static_cast <int> (ihs_->getIntegration ().getMinDirections ()));
 
+  // Hole filling
+  ui_->spinBox_dilation_size->setValue(ihs_->getFilter().getClosing_size());
+  ui_->spinBox_blur_kernel->setValue(ihs_->getFilter().getBlur_kern_size());
+  ui_->checkBox_filter_enabled->setChecked (ihs_->getFilter().isEnabled());
+  ui_->spinBox_lower_bound->setValue(ihs_->getFilter().getLower_bound());
+  ui_->spinBox_upper_bound->setValue(ihs_->getFilter().getUpper_bound());
+
+  // Mesh representation
+  // TODO
+
   // Help
   connect (ui_->actionHelp, SIGNAL (triggered ()), this, SLOT (showHelp ()));
 }
@@ -386,3 +396,38 @@ pcl::ihs::MainWindow::setMinDirections (const int directions)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+
+void
+pcl::ihs::MainWindow::setFilterDilation (const int dilation)
+{
+  ihs_->getFilter().setClosing_size(dilation);
+  ui_->spinBox_dilation_size->setValue (ihs_->getFilter().getClosing_size());
+}
+
+void
+pcl::ihs::MainWindow::setFilterBlur (const int blur)
+{
+  ihs_->getFilter().setBlur_kern_size(blur);
+  ui_->spinBox_blur_kernel->setValue (ihs_->getFilter().getBlur_kern_size());
+}
+
+void
+pcl::ihs::MainWindow::setFilterEnabled (const bool enabled)
+{
+  ihs_->getFilter().setEnabled(enabled);
+  ui_->checkBox_filter_enabled->setChecked(ihs_->getFilter().isEnabled());
+}
+
+void
+pcl::ihs::MainWindow::setFilterLowerBound (const int bound)
+{
+  ihs_->getFilter().setLower_bound(bound);
+  ui_->spinBox_lower_bound->setValue(ihs_->getFilter().getLower_bound());
+}
+
+void
+pcl::ihs::MainWindow::setFilterUpperBound (const int bound)
+{
+  ihs_->getFilter().setUpper_bound(bound);
+  ui_->spinBox_upper_bound->setValue(ihs_->getFilter().getUpper_bound());
+}

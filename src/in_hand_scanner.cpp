@@ -60,26 +60,30 @@
 #include <pcl/apps/in_hand_scanner/input_data_processing.h>
 #include <pcl/apps/in_hand_scanner/integration.h>
 #include <pcl/apps/in_hand_scanner/mesh_processing.h>
+#include <pcl/apps/in_hand_scanner/openni_grabber_custom.h>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 
 ////////////////////////////////////////////////////////////////////////////////
 
 pcl::ihs::InHandScanner::InHandScanner (Base* parent)
-  : Base                   (parent),
-    mutex_                 (),
-    computation_fps_       (),
-    visualization_fps_     (),
-    running_mode_          (RM_UNPROCESSED),
-    iteration_             (0),
-    grabber_               (),
-    starting_grabber_      (false),
-    new_data_connection_   (),
-    input_data_processing_ (new InputDataProcessing ()),
-    icp_                   (new ICP ()),
-    transformation_        (Eigen::Matrix4f::Identity ()),
-    integration_           (new Integration ()),
-    mesh_processing_       (new MeshProcessing ()),
-    mesh_model_            (new Mesh ()),
-    destructor_called_     (false)
+  : Base                          (parent),
+    mutex_                        (),
+    computation_fps_              (),
+    visualization_fps_            (),
+    running_mode_                 (RM_UNPROCESSED),
+    iteration_                    (0),
+    grabber_                      (),
+    starting_grabber_             (false),
+    new_data_connection_          (),
+    input_data_processing_        (new InputDataProcessing ()),
+    icp_                          (new ICP ()),
+    transformation_               (Eigen::Matrix4f::Identity ()),
+    integration_                  (new Integration ()),
+    mesh_processing_              (new MeshProcessing ()),
+    mesh_model_                   (new Mesh ()),
+    destructor_called_            (false),
+    filter_                       (new Filter())
 {
   // http://doc.qt.digia.com/qt/qmetatype.html#qRegisterMetaType
   qRegisterMetaType <pcl::ihs::InHandScanner::RunningMode> ("RunningMode");
@@ -285,7 +289,7 @@ pcl::ihs::InHandScanner::keyPressEvent (QKeyEvent* event)
 ////////////////////////////////////////////////////////////////////////////////
 
 void
-pcl::ihs::InHandScanner::newDataCallback (const CloudXYZRGBAConstPtr& cloud_in)
+pcl::ihs::InHandScanner::processCallback(const CloudXYZRGBAConstPtr& cloud_in)
 {
   Base::calcFPS (computation_fps_); // Must come before the lock!
 
@@ -411,6 +415,24 @@ pcl::ihs::InHandScanner::newDataCallback (const CloudXYZRGBAConstPtr& cloud_in)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+void
+pcl::ihs::InHandScanner::newDataCallback(const boost::shared_ptr<openni_wrapper::Image> &image,
+                                         const boost::shared_ptr<openni_wrapper::DepthImage> &depth_image_i,
+                                         float f) {
+  boost::shared_ptr<openni_wrapper::DepthImage> depth_image;
+  depth_image = depth_image_i;
+  if(filter_->isEnabled()) {
+    cv::Mat cDepthImg(depth_image->getDepthMetaData().FullYRes(),
+                      depth_image->getDepthMetaData().FullXRes(), CV_16UC1,
+                      (void *) depth_image->getDepthMetaData().Data());
+    filter_->process(cDepthImg, cDepthImg);
+  }
+  pcl::PointCloud<PointXYZRGBA>::Ptr cloud = grabber_->
+      convertToXYZRGBPointCloudPub<pcl::PointXYZRGBA>(image, depth_image);
+  processCallback(cloud);
+}
+
+////////////////////////////////////////////////////////////////////////////////
 
 void
 pcl::ihs::InHandScanner::paintEvent (QPaintEvent* event)
@@ -488,10 +510,10 @@ pcl::ihs::InHandScanner::startGrabberImpl ()
   lock.lock ();
   if (destructor_called_) return;
 
-  boost::function <void (const CloudXYZRGBAConstPtr&)> new_data_cb = boost::bind (&pcl::ihs::InHandScanner::newDataCallback, this, _1);
+  boost::function <OpenNIGrabber::sig_cb_openni_image_depth_image>
+      new_data_cb = boost::bind (&pcl::ihs::InHandScanner::newDataCallback, this, _1, _2, _3);
   new_data_connection_ = grabber_->registerCallback (new_data_cb);
   grabber_->start ();
-
   starting_grabber_ = false;
 }
 
