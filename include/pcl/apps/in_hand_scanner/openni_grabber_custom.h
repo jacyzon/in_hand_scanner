@@ -10,7 +10,7 @@ namespace pcl {
 
     OpenNIGrabberCustom() { }
 
-    ~OpenNIGrabberCustom() { }
+    ~OpenNIGrabberCustom() throw() { }
 
     template<typename PointT>
     typename pcl::PointCloud<PointT>::Ptr
